@@ -34,12 +34,10 @@ In VS Code, open just your project repository folder, e.g. Documents/streaming-0
 
 In VS Code, open a terminal window (View / Terminal) and verify your software is installed and configured.
 
-- If Mac/Linux, the default terminal should work.
 - If Windows, be sure you're using a PowerShell terminal (rather than cmd).
 
 Important: 
 
-- If Mac/Linux, change `python` to `python3` in the commands below.
 - In Windows, you might try `py` instead of `python`.
 - Type each command rather than copy & paste for best results. 
 - Wait for each command to complete before running the next command.
@@ -61,10 +59,9 @@ They all must run successfully before continuing.
 With your repo folder open in VS Code:
 
 1. Click util_about.py.
-1. If VS Code prompts, install the recommended Python extension.
-1. Check the Python Interpreter: On the bottom-left status bar, you might see a version of Python indicated (e.g., Python 3.12.x).
-1. If not, click on the bottom status bar where it should show the Python version or might say "Select Python Interpreter".
-1. From the dropdown, choose your default Python version.
+2. If VS Code prompts, install the recommended Python extension.
+3. Check the Python Interpreter: On the bottom-left status bar, you might see a version of Python indicated (e.g., Python 3.12.x).
+
 
 Use the terminal and the python command to execute the Python script. 
 
@@ -72,7 +69,6 @@ Use the terminal and the python command to execute the Python script.
 
 Important: 
 
-- If Mac/Linux, change `python` to `python3` in the commands below.
 - In Windows, you might try `py` instead of `python`.
 
 ```shell
@@ -159,6 +155,7 @@ Then click the checkmark in the upper right to close that file and save your com
 "Sync your changes" to push to GitHub. 
 
 ### Option B: Use Git Bash or Terminal Commands (Easy as well):
+(used this option)
 
 Open a new `Git Bash` or Terminal window. Run the following commands one at a time.
 They will first add all the files (add "dot"). 

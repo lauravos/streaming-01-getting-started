@@ -32,13 +32,56 @@ OUTPUT_FILE_NAME = "batchfile_3_farenheit.csv"
 # Define program functions (bits of reusable code)
 # Use docstrings - and indentation matters!
 
-
+#convert K to F, round to 2 decimal places, convert string to floating point number
 def convert_k_to_f(temp_k):
-    return
+    logging.debug(f"calling convert_k_to_f() with {temp_k}.")
+    fahrenheit = round((float(temp_k) - 273.15) * 9.0/5.0 + 32.0, 2)
+    #logging.debug(f"converted {temp_k}K to {fahrenheit:.2f}F.")
+    logging.debug(f"converted {temp_k}K to {fahrenheit}F.")
+    return f"{fahrenheit}"
 
+    #return f"{fahrenheit:.2f}"
 
+#Read from input file, convert temperature, and write to output file
 def process_rows(input_file_name, output_file_name):
-    return
+    logging.info(f"Calling process_rows(): {input_file_name} to {output_file_name}.")
+
+    #create file object for input (r=read access)
+    with open(input_file_name, "r") as input_file:
+
+        logging.info(f"Opened for reading: {input_file_name}.") 
+
+        # create a CSV reader object
+        reader = csv.reader(input_file, delimiter=",")
+
+        header = next(reader)
+        logging.info(f"skipped header row: {header}")
+
+        # Create a file object for output (w = write access)
+        # Set the newline parameter to an empty string to avoid extra newlines in the output file
+        with open(output_file_name, "w", newline="") as output_file:
+            logging.info(f"Opened for writing: {output_file_name}.")    
+
+            # Create a CSV writer object
+            writer = csv.writer(output_file, delimiter=",")
+
+            # Write the header row to the output file
+            writer.writerow(["Year", "Month", "Day", "Time", "TempF"])
+
+            # For each data row in the reader
+            for row in reader:
+                # Extract the values from the input row into named variables
+                Year, Month, Day, Time, TempK = row
+
+                # Call the conversion function, passing in the TempC argument
+                # Assign the return value to a new variable named TempK
+                TempF = convert_k_to_f(TempK)
+
+                # Write the transformed data to the output file
+                writer.writerow([Year, Month, Day, Time, TempF])
+
+
+
 
 
 # ---------------------------------------------------------------------------
